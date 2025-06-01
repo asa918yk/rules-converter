@@ -1,0 +1,118 @@
+{
+  "name": "rules-converter",
+  "displayName": "Rules Converter",
+  "description": "Cursor RulesとVSCode Instructionsの相互変換",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:rules-converter.convertCursorToVSCode",
+    "onCommand:rules-converter.convertVSCodeToCursor",
+    "onCommand:rules-converter.syncRules",
+    "onCommand:rules-converter.startWatching",
+    "onCommand:rules-converter.stopWatching"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rules-converter.convertCursorToVSCode",
+        "title": "Cursor Rules → VSCode Instructions",
+        "category": "Rules Converter"
+      },
+      {
+        "command": "rules-converter.convertVSCodeToCursor",
+        "title": "VSCode Instructions → Cursor Rules",
+        "category": "Rules Converter"
+      },
+      {
+        "command": "rules-converter.syncRules",
+        "title": "双方向同期",
+        "category": "Rules Converter"
+      },
+      {
+        "command": "rules-converter.startWatching",
+        "title": "ファイル監視を開始",
+        "category": "Rules Converter"
+      },
+      {
+        "command": "rules-converter.stopWatching",
+        "title": "ファイル監視を停止",
+        "category": "Rules Converter"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .mdc",
+          "command": "rules-converter.convertCursorToVSCode",
+          "group": "rules-converter"
+        },
+        {
+          "when": "resourceExtname == .md && resourceFilename =~ /\\.instructions\\./",
+          "command": "rules-converter.convertVSCodeToCursor",
+          "group": "rules-converter"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "rules-converter.convertCursorToVSCode",
+          "when": "true"
+        },
+        {
+          "command": "rules-converter.convertVSCodeToCursor",
+          "when": "true"
+        },
+        {
+          "command": "rules-converter.syncRules",
+          "when": "true"
+        },
+        {
+          "command": "rules-converter.startWatching",
+          "when": "true"
+        },
+        {
+          "command": "rules-converter.stopWatching",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Rules Converter",
+      "properties": {
+        "rulesConverter.autoWatch": {
+          "type": "boolean",
+          "default": false,
+          "description": "ファイルの変更を自動監視して変換を実行します、お嬢様"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "yaml": "^2.8.0"
+  },
+  "keywords": [
+    "cursor",
+    "vscode",
+    "instructions",
+    "rules",
+    "converter"
+  ],
+  "author": "",
+  "license": "MIT"
+}
