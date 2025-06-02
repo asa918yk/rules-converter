@@ -3,7 +3,7 @@
   "displayName": "Rules Converter",
   "description": "Cursor RulesとVSCode Instructionsの相互変換",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "asa918yk",
   "engines": {
     "vscode": "^1.74.0"
   },

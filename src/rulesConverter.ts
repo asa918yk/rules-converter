@@ -233,7 +233,6 @@ export class RulesConverter {
 
         const content = `---\n${frontMatter}---\n\n${instruction.content}`;
         
-        // TextEncoderを使用してBuffer()を避ける
         const encoder = new TextEncoder();
         const data = encoder.encode(content);
         await vscode.workspace.fs.writeFile(
@@ -278,7 +277,6 @@ export class RulesConverter {
         
         const content = `---\n${frontMatterYaml}\n---\n\n${rule.content}`;
         
-        // TextEncoderを使用してBuffer()を避ける
         const encoder = new TextEncoder();
         const data = encoder.encode(content);
         await vscode.workspace.fs.writeFile(

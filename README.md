@@ -18,9 +18,7 @@
 ---
 type: Always | Auto Attached | Manual
 description: "ルールの説明"
-globs:
-  - "**/*.ts"
-  - "**/*.tsx"
+globs: ["**/*.ts","**/*.tsx"]
 ---
 
 ルールの内容...
@@ -53,8 +51,8 @@ description: "インストラクションの説明"
 
 ### 自動変換
 ファイル監視が有効の場合、ファイルの変更を検知して自動的に変換いたします：
-- `.cursor/rules/**/*.mdc` → `.vscode/instructions/**/*.instructions.md`
-- `.vscode/instructions/**/*.instructions.md` → `.cursor/rules/**/*.mdc`
+- `.cursor/rules/**/*.mdc` → `.github/instructions/**/*.instructions.md`
+- `.github/instructions/**/*.instructions.md` → `.cursor/rules/**/*.mdc`
 
 ## ⚙️ 設定
 
@@ -78,7 +76,7 @@ your-project/
 │   └── rules/
 │       ├── typescript-butler.mdc
 │       └── react-guide.mdc
-└── .vscode/
+└── .github/
     └── instructions/
         ├── typescript-butler.instructions.md
         ├── react-guide.instructions.md
